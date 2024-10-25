@@ -26,8 +26,20 @@ public class Map
         {
             for (int z = 0 ; z < mapSize; z++)
             {
-                var mapRoomRepresentation = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                mapRoomRepresentation.transform.position = new Vector3(x, 0, z);
+
+                //Last week's code
+                /*var mapRoomRepresentation = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                mapRoomRepresentation.transform.position = new Vector3(x, 0, z);*/
+
+
+                Vector2 coords = new Vector2(x * RoomSize, z * RoomSize);
+
+                var roomInstance = Instantiate(RoomPrefabs[Random.Rrange(0, RoomPrefabs.Length)], transform);
+
+                roomInstance.SetRoomLocation(coords);
+
+                _rooms.Add(coords, roomInstance);
+
             }
         }
     }

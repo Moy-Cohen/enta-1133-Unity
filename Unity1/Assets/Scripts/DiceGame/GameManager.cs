@@ -6,15 +6,23 @@ public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    private Map gameMap;
+    [SerializeField] private MapManager GameMapPrefab; 
+
+    private MapManager _gameMap;
 
     public void Start()
     {
         Debug.Log("GameManager Start");
+        // Zero our manager position
+        transform.position = Vector3.zero;
 
-        gameMap = new Map();
+        //Create instance of MapManager
+        _gameMap = Instantiate(GameMapPrefab, transform);
+        _gameMap.transform.position = Vector3.zero;
+        //Create the map
+        _gameMap.CreateMap();
 
-        Debug.Log("Gamemanager Map Created");
+        Debug.Log("GameManager Map Created");
 
         StartGame();
     }
