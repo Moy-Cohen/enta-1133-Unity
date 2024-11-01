@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Map
 {
-    int mapSize = 9;
+   /* int mapSize = 9;
     public int MapSize => mapSize;
 
 
@@ -32,7 +32,7 @@ public class Map
                 mapRoomRepresentation.transform.position = new Vector3(x, 0, z);*/
 
 
-                Vector2 coords = new Vector2(x * RoomSize, z * RoomSize);
+                /*Vector2 coords = new Vector2(x * RoomSize, z * RoomSize);
 
                 var roomInstance = Instantiate(RoomPrefabs[Random.Rrange(0, RoomPrefabs.Length)], transform);
 
@@ -42,7 +42,8 @@ public class Map
 
             }
         }
-    }
+    }*/
+
 
     
 

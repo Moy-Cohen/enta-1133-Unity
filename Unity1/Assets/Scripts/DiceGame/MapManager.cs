@@ -21,14 +21,12 @@ public class MapManager : MonoBehaviour
             for (int z = 0; z < mapSize; z++)
             {
 
-                //Last week's code
-                /*var mapRoomRepresentation = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                mapRoomRepresentation.transform.position = new Vector3(x, 0, z);*/
+                
 
 
                 Vector2 coords = new Vector2(x * RoomSize, z * RoomSize);
 
-                var roomInstance = Instantiate(RoomPrefabs[Random.Rrange(0, RoomPrefabs.Length)], transform);
+                var roomInstance = Instantiate(RoomPrefabs[Random.Range(0, RoomPrefabs.Length)], transform);
 
                 roomInstance.SetRoomLocation(coords);
 
@@ -51,7 +49,31 @@ public class MapManager : MonoBehaviour
 
     private RoomBase FindRoom(Vector2 currentRoom, Direction direction)
     {
+        RoomBase room = null;
+        Vector2 nextRoomCoordinates = new Vector2(-1, -1);
+        switch (direction)
+        {
+            case Direction.North:
+                nextRoomCoordinates = currentRoom + (Vector2.up * RoomSize);
+                break;
+            case Direction.East:
+                nextRoomCoordinates = currentRoom + (Vector2.right * RoomSize);
+                break;
+            case Direction.South:
+                nextRoomCoordinates = currentRoom + (Vector2.down * RoomSize);
+                break;
+            case Direction.West:
+                nextRoomCoordinates = currentRoom + (Vector2.left * RoomSize);
+                break;
+        }
 
+        if (_rooms.TryGetValue(nextRoomCoordinates, out var nextRoom))
+        {
+            room = nextRoom;
+        }
+
+        return room;
+    
     }
 
 }

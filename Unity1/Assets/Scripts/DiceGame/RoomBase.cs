@@ -5,7 +5,23 @@ using UnityEngine;
 public class RoomBase : MonoBehaviour
 {
     [SerializeField] private GameObject NorthDoorway, EastDoorway, SouthDoorway, WestDoorway;
+    
     private RoomBase _north, _east, _south, _west;
+
+    public RoomBase North => _north;
+    public RoomBase East => _east;
+    public RoomBase South => _south;
+    public RoomBase West => _west;
+
+    private Vector2 _roomPosition;
+    public Vector2 RoomPosition => _roomPosition;
+
+    public virtual void SetRoomLocation(Vector2 coordinates)
+    {
+        transform.position = new Vector3(coordinates.x, 0, coordinates.y);
+        _roomPosition = coordinates;
+        Debug.Log("Room " +  _roomPosition + " Created!");
+    }
 
     public void SetRooms(RoomBase roomNorth, RoomBase roomEast, RoomBase roomSouth, RoomBase roomWest)
     {
@@ -18,4 +34,19 @@ public class RoomBase : MonoBehaviour
         _west = roomWest;
         WestDoorway.SetActive(_west  == null);
     }
+
+    public virtual void OnRoomEntered()
+    {
+        Debug.Log("Empty Room Entered");
+    }
+
+    public virtual void OnRoomSearched()
+    {
+        Debug.Log("Empty Room Searched");
+    }
+    public virtual void OnRoomExited()
+    {
+        Debug.Log("Empty Room Exited");
+    }
+
 }

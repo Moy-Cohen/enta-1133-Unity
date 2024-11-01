@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Script : MonoBehaviour
 {
-    // Start is called before the first frame update
+   /* // Start is called before the first frame update
     void Start()
     {
         Debug.Log("Start normal log");
@@ -16,5 +16,5 @@ public class Script : MonoBehaviour
     void Update()
     {
         Debug.Log("Update normal log");
-    }
+    }*/
 }

@@ -1,5 +1,6 @@
-using System.Collections;
+//using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -31,5 +32,10 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("Hello World");
+
+        var randomStartingRoom = _gameMap.Rooms.ElementAt(Random.Range(0, _gameMap.Rooms.Keys.Count));
+        // Set the camera to the spawn room
+        Camera.main.transform.position = new Vector3(randomStartingRoom.Key.x, 2.5f, randomStartingRoom.Key.y);
+
     }
 }
