@@ -18,6 +18,7 @@ public class RoomBase : MonoBehaviour
 
     public virtual void SetRoomLocation(Vector2 coordinates)
     {
+        // x, z plane
         transform.position = new Vector3(coordinates.x, 0, coordinates.y);
         _roomPosition = coordinates;
         Debug.Log("Room " +  _roomPosition + " Created!");

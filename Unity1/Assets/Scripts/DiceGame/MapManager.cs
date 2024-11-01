@@ -6,14 +6,15 @@ using UnityEngine;
 public class MapManager : MonoBehaviour
 {
     [SerializeField] private RoomBase[] RoomPrefabs;
-    [SerializeField] private float RoomSize = 1;
+    [SerializeField] private float RoomSize = 3;
 
+    // Map size is this number squared
     private const int mapSize = 9;
     readonly Dictionary<Vector2, RoomBase> _rooms = new();
     public Dictionary<Vector2, RoomBase> Rooms => _rooms;
     
 
-
+    // Creates map using the prefab rooms
     public void CreateMap()
     {
         for (int x = 0; x < mapSize; x++)
@@ -47,6 +48,8 @@ public class MapManager : MonoBehaviour
         }
     }
 
+    // Finds the next room in a direction from an existing room 
+    
     private RoomBase FindRoom(Vector2 currentRoom, Direction direction)
     {
         RoomBase room = null;
