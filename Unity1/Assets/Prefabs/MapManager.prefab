@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2850824272958947999}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.090027, y: 1.3040152, z: 3.8203886}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46,6 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RoomPrefabs:
   - {fileID: 5570084035407881443, guid: 2ea7ce786fa882546854e900ebaed6b4, type: 3}
-  - {fileID: 2826091098386563458, guid: 8f6c7431bdae71743804f6e96e129b8d, type: 3}
-  - {fileID: 4960698528279131251, guid: 39dfc189bd78591499a3d00f18a11212, type: 3}
-  RoomSize: 3
+  - {fileID: 6617470556574076933, guid: 8f6c7431bdae71743804f6e96e129b8d, type: 3}
+  - {fileID: 5392265591509050078, guid: ad2800e94f31b174f956e741f90932e6, type: 3}
+  - {fileID: 7644053243704037158, guid: c64fae343713f8645b87bf09c8eaf0b0, type: 3}
+  - {fileID: 8612923673390353679, guid: e69176580c875a2409e010665e1d6cad, type: 3}
+  - {fileID: 2938010705359269796, guid: 6609dad414b42924b8901a0b8d11baf0, type: 3}
+  - {fileID: -4036303744607535605, guid: 39dfc189bd78591499a3d00f18a11212, type: 3}
+  RoomSize: 6
