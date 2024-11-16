@@ -206,3 +206,4 @@ MonoBehaviour:
   EastDoorway: {fileID: 1239973099736204393}
   SouthDoorway: {fileID: 7726769217402193843}
   WestDoorway: {fileID: 541964457589318614}
+  EnemySlime: {fileID: -6147299411602087957, guid: b2b7d28056da73f49b74cb88866eca66, type: 3}

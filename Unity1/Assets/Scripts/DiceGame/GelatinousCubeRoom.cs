@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class GelatinousCubeRoom : RoomBase
 {
+
+    [SerializeField] EnemyBase EnemySlime;
+
+
+    public void Start()
+    {
+        SpawnSlime();
+    }
+
+    public void SpawnSlime()
+    {
+        var slimeInstance = Instantiate(EnemySlime, transform);
+        slimeInstance.transform.localPosition = new Vector3(0, 0.5f, -2);
+    }
     public override void SetRoomLocation(Vector2 coordinates)
     {
         base.SetRoomLocation(coordinates);

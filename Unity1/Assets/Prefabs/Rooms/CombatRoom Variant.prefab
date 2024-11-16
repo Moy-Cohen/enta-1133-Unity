@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5e76e65b6c9eb7c44af785c1d5cccec6, type: 2}
     - target: {fileID: 4298696200018978511, guid: 2ea7ce786fa882546854e900ebaed6b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.758463
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4298696200018978511, guid: 2ea7ce786fa882546854e900ebaed6b4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4298696200018978511, guid: 2ea7ce786fa882546854e900ebaed6b4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.1027985
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4298696200018978511, guid: 2ea7ce786fa882546854e900ebaed6b4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -201,6 +201,10 @@ MonoBehaviour:
   EastDoorway: {fileID: 4135273379911253862}
   SouthDoorway: {fileID: 4858480637843242172}
   WestDoorway: {fileID: 3446172911643367641}
+  EnemyPrefabs:
+  - {fileID: 529149447206785597, guid: af805f5df6136f444a0c97b5f32aef99, type: 3}
+  - {fileID: -6147299411602087957, guid: b2b7d28056da73f49b74cb88866eca66, type: 3}
+  - {fileID: 4500308437058310151, guid: 118aa6086c34d9e4f980e66f90774e3c, type: 3}
 --- !u!1 &7852435094228152181 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2663098277251091576, guid: 2ea7ce786fa882546854e900ebaed6b4, type: 3}

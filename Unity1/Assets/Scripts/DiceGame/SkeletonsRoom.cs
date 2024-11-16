@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class SkeletonsRoom : RoomBase
 {
+    [SerializeField] EnemyBase EnemySkeleton;
+
+
+    public void Start()
+    {
+        SpawnSkeleton();
+    }
+
+    public void SpawnSkeleton()
+    {
+        var skeletonInstance = Instantiate(EnemySkeleton, transform);
+        skeletonInstance.transform.localPosition = new Vector3(0, 0.1f, -2);
+    }
     public override void SetRoomLocation(Vector2 coordinates)
     {
         base.SetRoomLocation(coordinates);

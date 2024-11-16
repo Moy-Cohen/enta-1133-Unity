@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class MinotaurRoom : RoomBase
 {
+    [SerializeField] EnemyBase EnemyMinotaur;
+
+
+    public void Start()
+    {
+        SpawnMinotaur();
+    }
+
+    public void SpawnMinotaur()
+    {
+        var minotaurInstance = Instantiate(EnemyMinotaur, transform);
+        minotaurInstance.transform.localPosition = new Vector3(0, 0 , -2);
+    }
     public override void SetRoomLocation(Vector2 coordinates)
     {
         base.SetRoomLocation(coordinates);

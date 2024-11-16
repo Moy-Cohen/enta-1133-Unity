@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     private MapManager _gameMap;
     private PlayerController _playerController;
+    private CombatRoom _combatRoom;
 
     public void Start()
     {
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviour
         SetupMap();
         SpawnPlayer();
         StartGame();
+        
+        
     }
 
     private void SetupMap()
@@ -31,6 +34,8 @@ public class GameManager : MonoBehaviour
         _gameMap.transform.position = Vector3.zero;
         //Create the map
         _gameMap.CreateMap();
+        
+        
 
         Debug.Log("GameManager Setup Map Complete");
     }

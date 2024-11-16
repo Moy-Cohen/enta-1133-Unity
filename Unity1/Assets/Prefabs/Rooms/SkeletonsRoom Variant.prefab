@@ -197,6 +197,7 @@ MonoBehaviour:
   EastDoorway: {fileID: 8422508853607839592}
   SouthDoorway: {fileID: 1075648313755169970}
   WestDoorway: {fileID: 7084995738212372695}
+  EnemySkeleton: {fileID: 529149447206785597, guid: af805f5df6136f444a0c97b5f32aef99, type: 3}
 --- !u!1 &2411895347096463227 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7852435094228152181, guid: 8f6c7431bdae71743804f6e96e129b8d, type: 3}
