@@ -16,7 +16,7 @@ public class GelatinousCubeRoom : RoomBase
     public void SpawnSlime()
     {
         var slimeInstance = Instantiate(EnemySlime, transform);
-        slimeInstance.transform.localPosition = new Vector3(0, 0.5f, -2);
+        slimeInstance.transform.localPosition = new Vector3(0, 0, -2);
     }
     public override void SetRoomLocation(Vector2 coordinates)
     {
