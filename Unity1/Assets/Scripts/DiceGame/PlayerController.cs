@@ -114,6 +114,7 @@ public class PlayerController : MonoBehaviour
                     StartMovement(roomInFacingDirection);
                 }
             }
+            Debug.Log(_facingDirection);
         }
     }
 
