@@ -16,7 +16,8 @@ public class SpidersRoom : RoomBase
     public void SpawnSpiders()
     {
         var spiderInstance = Instantiate(EnemySpider, transform);
-        spiderInstance.transform.localPosition = new Vector3(0, 0.1f, 1.5f);
+        spiderInstance.transform.localPosition = new Vector3(0, 0.1f, -1.5f);
+        
     }
     public override void SetRoomLocation(Vector2 coordinates)
     {

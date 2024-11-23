@@ -159,10 +159,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb1fd43b72d8a045a5fc2bdf4ee5a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyMinotaur: {fileID: 5506853251413627871, guid: a5e52d7b140946447b7c3914efa061fb, type: 3}
-  EnemySpider: {fileID: 2344214576946280592}
-  EnemySkeleton: {fileID: 8752023651599583079, guid: af805f5df6136f444a0c97b5f32aef99, type: 3}
-  EnemySlime: {fileID: 194068202138536553, guid: b2b7d28056da73f49b74cb88866eca66, type: 3}
+  enemyMaxHp: 30
+  enemyCurrentHp: 30
+  enemyMaxAttackDamage: 12
+  enemySpeed: 40
 --- !u!4 &5848492659803444720 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2929527315465043145, guid: f90f9b2f626a18b4a8f0b13e030ecda6, type: 3}

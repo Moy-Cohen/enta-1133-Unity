@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_isMoving)
         {
-            Vector3 currentPosition = Vector3.Slerp(_previousPosition, _moveToPosition, _movementTimer / MovementTime);
+            Vector3 currentPosition = Vector3.Lerp(_previousPosition, _moveToPosition, _movementTimer / MovementTime);
             transform.position = currentPosition;
             _movementTimer += Time.deltaTime;
 

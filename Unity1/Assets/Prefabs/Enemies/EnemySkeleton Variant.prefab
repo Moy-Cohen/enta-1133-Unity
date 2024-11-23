@@ -98,6 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb1fd43b72d8a045a5fc2bdf4ee5a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyMaxHp: 20
+  enemyCurrentHp: 20
+  enemyMaxAttackDamage: 10
+  enemySpeed: 10
 --- !u!1001 &2760499205086835166
 PrefabInstance:
   m_ObjectHideFlags: 0

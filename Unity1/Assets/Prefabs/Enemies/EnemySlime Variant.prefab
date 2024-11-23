@@ -159,6 +159,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb1fd43b72d8a045a5fc2bdf4ee5a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyMaxHp: 45
+  enemyCurrentHp: 45
+  enemyMaxAttackDamage: 12
+  enemySpeed: 10
 --- !u!4 &8292023749760657161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2929527315465043145, guid: f90f9b2f626a18b4a8f0b13e030ecda6, type: 3}

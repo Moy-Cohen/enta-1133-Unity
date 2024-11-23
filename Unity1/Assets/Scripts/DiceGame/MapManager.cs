@@ -17,14 +17,14 @@ public class MapManager : MonoBehaviour
     // Creates map using the prefab rooms
     public void CreateMap()
     {
-        int randomX = 0;
-        int randomZ = 0;
+        int randomX;
+        int randomZ;
 
         // Added variables for conditioning a specific room 
         randomX = Random.Range(0, mapSize);
         randomZ = Random.Range(0, mapSize);
 
-        // Map creation 
+        // Map creation Random rooms from the room prefabs list
         for (int x = 0; x < mapSize; x++)
         {
             for (int z = 0; z < mapSize; z++)
@@ -32,20 +32,14 @@ public class MapManager : MonoBehaviour
                 Vector2 coords = new Vector2(x * RoomSize, z * RoomSize);
                 RoomBase roomInstance;
 
+                // This if statement conditions so that only one minotaurRoom Spawns in th map 
                 if (x == randomX && z == randomZ)
                 {
-                    
                     roomInstance = Instantiate(minotaurRoom, transform);
-                    
-                    
                 }
                 else
                 {
-                    
-
                     roomInstance = Instantiate(RoomPrefabs[Random.Range(0, RoomPrefabs.Length)], transform);
-
-                   
                 }
 
                 roomInstance.SetRoomLocation(coords);
