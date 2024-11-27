@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
         {Direction.South, 180 },
         {Direction.West, 270 }
     };
-    private Direction _facingDirection;
+    public Direction _facingDirection;
     private bool _isRotating = false;
 
     // Smooth rotation

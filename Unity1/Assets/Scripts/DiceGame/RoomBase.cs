@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RoomBase : MonoBehaviour
 {
+    [SerializeField] public bool _isSearched = false;
+
     [SerializeField] private GameObject NorthDoorway, EastDoorway, SouthDoorway, WestDoorway;
     
     private RoomBase _north, _east, _south, _west;

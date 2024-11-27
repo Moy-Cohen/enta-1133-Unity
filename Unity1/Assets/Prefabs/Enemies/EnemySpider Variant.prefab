@@ -96,7 +96,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2929527315465043145, guid: f90f9b2f626a18b4a8f0b13e030ecda6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2929527315465043145, guid: f90f9b2f626a18b4a8f0b13e030ecda6, type: 3}
       propertyPath: m_LocalRotation.x
@@ -104,7 +104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2929527315465043145, guid: f90f9b2f626a18b4a8f0b13e030ecda6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2929527315465043145, guid: f90f9b2f626a18b4a8f0b13e030ecda6, type: 3}
       propertyPath: m_LocalRotation.z
@@ -116,7 +116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2929527315465043145, guid: f90f9b2f626a18b4a8f0b13e030ecda6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 2929527315465043145, guid: f90f9b2f626a18b4a8f0b13e030ecda6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -162,7 +162,6 @@ MonoBehaviour:
   enemyMaxHp: 30
   enemyCurrentHp: 30
   enemyMaxAttackDamage: 12
-  enemySpeed: 40
 --- !u!4 &5848492659803444720 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2929527315465043145, guid: f90f9b2f626a18b4a8f0b13e030ecda6, type: 3}

@@ -187,18 +187,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d633110c08d1634085eda87e7d4f0ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSearched: 0
   NorthDoorway: {fileID: 2615019658992784224}
   EastDoorway: {fileID: 8201177662364255091}
   SouthDoorway: {fileID: 855636639285264553}
   WestDoorway: {fileID: 7449053402395944140}
   TreasurePrefabs:
-  - {fileID: -3963407095046210235, guid: 72804ede068da5a46bd712d34e97de3f, type: 3}
-  - {fileID: -3594305487652305642, guid: 9eb73c4e97d4f384699d863073b67e79, type: 3}
-  - {fileID: -3272793942849723550, guid: ef4f4705725d29444bdc68ca67fe4ad4, type: 3}
-  - {fileID: 1851244191380266037, guid: 1eb40fed1b4ec834db172cb839b12f0f, type: 3}
-  - {fileID: 9012076496759344240, guid: d46c02c470e62bb46a30e1b3dd73ee6a, type: 3}
-  - {fileID: 6336720540213371009, guid: 44afef4eba0e18f42bdedbeb451fc7bc, type: 3}
-  - {fileID: -457051594070690939, guid: be011a6e5b7dcab418327e71f294bdee, type: 3}
+  - {fileID: -3138267762057492288, guid: d46c02c470e62bb46a30e1b3dd73ee6a, type: 3}
+  - {fileID: -8576931529140262864, guid: 44afef4eba0e18f42bdedbeb451fc7bc, type: 3}
+  - {fileID: 1301041876770463408, guid: be011a6e5b7dcab418327e71f294bdee, type: 3}
+  - {fileID: -7192369598198927886, guid: 9eb73c4e97d4f384699d863073b67e79, type: 3}
+  - {fileID: 7239150626599235150, guid: ef4f4705725d29444bdc68ca67fe4ad4, type: 3}
+  - {fileID: 9199335093440660577, guid: 72804ede068da5a46bd712d34e97de3f, type: 3}
+  - {fileID: -4489579796371126652, guid: 1eb40fed1b4ec834db172cb839b12f0f, type: 3}
 --- !u!1 &2615019658992784224 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2663098277251091576, guid: 2ea7ce786fa882546854e900ebaed6b4, type: 3}

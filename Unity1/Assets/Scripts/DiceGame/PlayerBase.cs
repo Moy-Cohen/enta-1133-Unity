@@ -6,5 +6,10 @@ public class PlayerBase : MonoBehaviour
 {
     private int maxHealth = 50;
     private int currentHealth = 50;
-    private int speed = 30;
+
+   
+
+
+
+    
 }

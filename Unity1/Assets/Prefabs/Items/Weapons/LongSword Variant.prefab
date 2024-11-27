@@ -147,5 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9286d642b74d66f4aa5a1dc853c462d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: LongSword
+  _isConsumable: 0
   maxAttackDamage: 10
   durability: 6

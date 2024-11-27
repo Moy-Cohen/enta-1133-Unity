@@ -160,6 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6abd53860909ee4a97cdc56c915ff6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: HealingPotion
+  _isConsumable: 1
   maxHealth: 5
 --- !u!4 &8609976396819463842 stripped
 Transform:

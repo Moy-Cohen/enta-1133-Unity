@@ -85,6 +85,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6abd53860909ee4a97cdc56c915ff6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: GreatHealingPotion
+  _isConsumable: 1
   maxHealth: 10
 --- !u!1001 &3190901950490846167
 PrefabInstance:
