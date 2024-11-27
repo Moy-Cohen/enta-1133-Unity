@@ -6,6 +6,14 @@ public class TreasureRoom : RoomBase
 {
 
     [SerializeField] private ItemBase[] TreasurePrefabs;
+
+    private PlayerInventory _inventory;
+
+    public void Start()
+    {
+        _inventory = FindAnyObjectByType<PlayerInventory>();
+    }
+
     public override void SetRoomLocation(Vector2 coordinates)
     {
         base.SetRoomLocation(coordinates);
@@ -23,12 +31,7 @@ public class TreasureRoom : RoomBase
         if (_isSearched == false)
         {
             Debug.Log("Treasure Room Searched");
-            for (int x = 0; x < 3; x++)
-            {
-                var treasureInstance = Instantiate(TreasurePrefabs[Random.Range(0, TreasurePrefabs.Length)]);
-                treasureInstance.transform.localPosition = new Vector3(1, 1, x);
-                
-            }
+            _inventory.TreasureSearch();
             _isSearched = true;
         }
         //If the room has been searched display a room searched message

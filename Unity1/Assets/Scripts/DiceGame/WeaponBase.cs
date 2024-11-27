@@ -9,7 +9,7 @@ public class WeaponBase : ItemBase
     [SerializeField] int durability = 0;
     
     //Deal damage between 1 and the max attack damage 
-    public int DealDamage()
+    public virtual int DealDamage()
     {
         int damageDealt = Random.Range(0, maxAttackDamage);
         return damageDealt;

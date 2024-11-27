@@ -6,16 +6,39 @@ public class MinotaurRoom : RoomBase
 {
     [SerializeField] EnemyBase EnemyMinotaur;
 
+    private PlayerController _playerController;
 
     public void Start()
     {
-        
+        _playerController = Object.FindAnyObjectByType<PlayerController>();
     }
 
     public void SpawnMinotaur()
     {
-        var minotaurInstance = Instantiate(EnemyMinotaur, transform);
-        minotaurInstance.transform.localPosition = new Vector3(0, 0 , -2);
+        if (_playerController._facingDirection == Direction.North)
+        {
+            var minotaurInstance = Instantiate(EnemyMinotaur, transform);
+            minotaurInstance.transform.localPosition = new Vector3(0, 0.1f, 2);
+            minotaurInstance.transform.Rotate(0, 180, 0);
+        }
+        else if (_playerController._facingDirection == Direction.East)
+        {
+            var minotaurInstance = Instantiate(EnemyMinotaur, transform);
+            minotaurInstance.transform.localPosition = new Vector3(2, 0.1f, 0);
+            minotaurInstance.transform.Rotate(0, -90, 0);
+        }
+        else if (_playerController._facingDirection == Direction.South)
+        {
+            var minotaurInstance = Instantiate(EnemyMinotaur, transform);
+            minotaurInstance.transform.localPosition = new Vector3(0, 0.1f, -2);
+        }
+        else if (_playerController._facingDirection == Direction.West)
+        {
+            var minotaurInstance = Instantiate(EnemyMinotaur, transform);
+            minotaurInstance.transform.localPosition = new Vector3(-2, 0.1f, 0);
+            minotaurInstance.transform.Rotate(0, 90, 0);
+        }
+
     }
     public override void SetRoomLocation(Vector2 coordinates)
     {
@@ -29,8 +52,17 @@ public class MinotaurRoom : RoomBase
 
     public override void OnRoomSearched()
     {
-        Debug.Log("Minotaur Room Searched");
-        SpawnMinotaur();
+        if(_isSearched == false)
+        {
+            Debug.Log("Minotaur Room Searched");
+            SpawnMinotaur();
+            _isSearched = true;
+        }
+        else
+        {
+            Debug.Log("Minotaur Room Was Searched Already");
+        }
+
     }
 
     public override void OnRoomExited()

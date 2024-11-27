@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerBase : MonoBehaviour
 {
-    private int maxHealth = 50;
-    private int currentHealth = 50;
+    public int maxHealth = 50;
+    public int currentHealth = 50;
 
    
 

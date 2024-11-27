@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     };
     public Direction _facingDirection;
     private bool _isRotating = false;
+    
 
     // Smooth rotation
     [SerializeField] private float RotationTime = 0.5f;
@@ -25,8 +26,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float MovementTime = 0.5f;
     private bool _isMoving = false;
     private float _movementTimer = 0.0f;
-    private Vector3 _previousPosition;
-    private Vector3 _moveToPosition;
+    public Vector3 _previousPosition;
+    public Vector3 _moveToPosition;
 
     public void Setup()
     {
@@ -114,6 +115,7 @@ public class PlayerController : MonoBehaviour
                     StartMovement(roomInFacingDirection);
                 }
             }
+
             Debug.Log(_facingDirection);
         }
     }

@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 1437013885545562265}
   - component: {fileID: 1365650369546941737}
   - component: {fileID: -2301002253654028937}
+  - component: {fileID: -3231183935202954762}
   - component: {fileID: 8991491370262252319}
   - component: {fileID: 130444568035813974}
   m_Layer: 0
@@ -140,8 +141,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 481ab06f12f2126499d9aca4462f66ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _facingDirection: 0
   RotationTime: 0.5
   MovementTime: 0.5
+  _previousPosition: {x: 0, y: 0, z: 0}
+  _moveToPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &-2301002253654028937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +158,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eddf68d4bcfb5224aa8f153d2c59384a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 50
+  currentHealth: 50
+--- !u!114 &-3231183935202954762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638643211534006337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08e83cd8f6a849c409494a9f5cd09bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TreasurePrefabs:
+  - {fileID: -3138267762057492288, guid: d46c02c470e62bb46a30e1b3dd73ee6a, type: 3}
+  - {fileID: -8576931529140262864, guid: 44afef4eba0e18f42bdedbeb451fc7bc, type: 3}
+  - {fileID: 1301041876770463408, guid: be011a6e5b7dcab418327e71f294bdee, type: 3}
+  - {fileID: -7192369598198927886, guid: 9eb73c4e97d4f384699d863073b67e79, type: 3}
+  - {fileID: 7239150626599235150, guid: ef4f4705725d29444bdc68ca67fe4ad4, type: 3}
+  - {fileID: 9199335093440660577, guid: 72804ede068da5a46bd712d34e97de3f, type: 3}
+  - {fileID: -4489579796371126652, guid: 1eb40fed1b4ec834db172cb839b12f0f, type: 3}
+  currentInventory: []
 --- !u!54 &8991491370262252319
 Rigidbody:
   m_ObjectHideFlags: 0

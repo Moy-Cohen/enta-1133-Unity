@@ -7,16 +7,39 @@ public class GelatinousCubeRoom : RoomBase
 
     [SerializeField] EnemyBase EnemySlime;
 
+    private PlayerController _playerController;
+
 
     public void Start()
     {
-        
+        _playerController = Object.FindAnyObjectByType<PlayerController>();
     }
 
     public void SpawnSlime()
     {
-        var slimeInstance = Instantiate(EnemySlime, transform);
-        slimeInstance.transform.localPosition = new Vector3(0, 0, -2);
+        if (_playerController._facingDirection == Direction.North)
+        {
+            var slimeInstance = Instantiate(EnemySlime, transform);
+            slimeInstance.transform.localPosition = new Vector3(0, 0.1f, 1.5f);
+            slimeInstance.transform.Rotate(0, 180, 0);
+        }
+        else if (_playerController._facingDirection == Direction.East)
+        {
+            var slimeInstance = Instantiate(EnemySlime, transform);
+            slimeInstance.transform.localPosition = new Vector3(1.5f, 0.1f, 0);
+            slimeInstance.transform.Rotate(0, -90, 0);
+        }
+        else if (_playerController._facingDirection == Direction.South)
+        {
+            var slimeInstance = Instantiate(EnemySlime, transform);
+            slimeInstance.transform.localPosition = new Vector3(0, 0.1f, -1.5f);
+        }
+        else if (_playerController._facingDirection == Direction.West)
+        {
+            var slimeInstance = Instantiate(EnemySlime, transform);
+            slimeInstance.transform.localPosition = new Vector3(-1.5f, 0.1f, 0);
+            slimeInstance.transform.Rotate(0, 90, 0);
+        }
     }
     public override void SetRoomLocation(Vector2 coordinates)
     {
@@ -30,8 +53,17 @@ public class GelatinousCubeRoom : RoomBase
 
     public override void OnRoomSearched()
     {
-        Debug.Log("Gelatinous Cube Room Searched");
-        SpawnSlime();
+        if (_isSearched == false)
+        {
+            Debug.Log("Gelatinous Cube Room Searched");
+            SpawnSlime();
+            _isSearched = true;
+        }
+        else
+        {
+            Debug.Log("Gelatinous Cube Room Was Searched Already");
+        }
+
     }
 
     public override void OnRoomExited()
