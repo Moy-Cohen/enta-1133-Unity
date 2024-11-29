@@ -6,9 +6,9 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
     // Enemy stats
-    [SerializeField] int enemyMaxHp = 0;
-    [SerializeField] int enemyCurrentHp = 0;
-    [SerializeField] int enemyMaxAttackDamage = 0;
+    [SerializeField] public int enemyMaxHp = 0;
+    [SerializeField] public int enemyCurrentHp = 0;
+    [SerializeField] public int enemyMaxAttackDamage = 0;
 
 
     private PlayerBase _playerBase;

@@ -11,6 +11,7 @@ public class SkeletonsRoom : RoomBase
     public void Start()
     {
         _playerController = Object.FindAnyObjectByType<PlayerController>();
+        
     }
 
     public void SpawnSkeleton()

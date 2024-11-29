@@ -180,7 +180,6 @@ MonoBehaviour:
   - {fileID: 7239150626599235150, guid: ef4f4705725d29444bdc68ca67fe4ad4, type: 3}
   - {fileID: 9199335093440660577, guid: 72804ede068da5a46bd712d34e97de3f, type: 3}
   - {fileID: -4489579796371126652, guid: 1eb40fed1b4ec834db172cb839b12f0f, type: 3}
-  currentInventory: []
 --- !u!54 &8991491370262252319
 Rigidbody:
   m_ObjectHideFlags: 0

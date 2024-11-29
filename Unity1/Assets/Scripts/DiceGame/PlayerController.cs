@@ -109,14 +109,18 @@ public class PlayerController : MonoBehaviour
             }
             else if(Input.GetKeyDown(KeyCode.W))
             {
-                RoomBase roomInFacingDirection = NextRoomInDirection();
-                if (roomInFacingDirection != null)
+                if( _isMoving == false)
                 {
-                    StartMovement(roomInFacingDirection);
+                    RoomBase roomInFacingDirection = NextRoomInDirection();
+                    if (roomInFacingDirection != null)
+                    {
+                        StartMovement(roomInFacingDirection);
+                    }
                 }
+                
             }
 
-            Debug.Log(_facingDirection);
+           
         }
     }
 

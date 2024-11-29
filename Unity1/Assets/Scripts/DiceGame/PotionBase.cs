@@ -6,7 +6,7 @@ public class PotionBase : ItemBase
 {
 
     //Potions stats
-    [SerializeField] int maxHealth = 0;
+    //[SerializeField] public int maxHealth = 0;
 
     //Heal player function
     public int HealPlayer()

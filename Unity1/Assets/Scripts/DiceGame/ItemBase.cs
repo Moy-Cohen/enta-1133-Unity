@@ -5,7 +5,10 @@ using UnityEngine;
 public class ItemBase : MonoBehaviour
 {
 
-    [SerializeField] string itemName;
-    [SerializeField] bool _isConsumable;
+    [SerializeField] public string itemName;
+    [SerializeField] public bool _isConsumable;
+    [SerializeField] public  int maxAttackDamage = 0;
+    [SerializeField] public  int durability = 0;
+    [SerializeField] public int maxHealth = 0;
 
 }

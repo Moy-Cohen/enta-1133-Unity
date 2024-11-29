@@ -5,10 +5,18 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] public InGameHUD _inGameHUD;
     public void ButtonStartGame()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("LevelTesting");
         gameObject.SetActive(false);
+
         
     }
+
+    public void ButtonQuitGame()
+    {
+        Application.Quit();
+    }
+
 }
