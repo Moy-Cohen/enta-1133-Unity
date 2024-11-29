@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
+
+    
     // Enemy stats
     [SerializeField] public int enemyMaxHp = 0;
     [SerializeField] public int enemyCurrentHp = 0;
@@ -12,14 +14,15 @@ public class EnemyBase : MonoBehaviour
 
 
     private PlayerBase _playerBase;
-    //Enemy attacks and do random damage between 0 and the max damage
+    
 
-    public void SetUp()
+    public virtual void Start()
     {
         _playerBase = Object.FindAnyObjectByType<PlayerBase>();
     }
 
-    public void DoAttack()
+    //Enemy attacks and do random damage between 0 and the max damage
+    public virtual void DoAttack()
     {
         int attackDamage = Random.Range(0, enemyMaxAttackDamage);
         _playerBase.currentHealth -= attackDamage;

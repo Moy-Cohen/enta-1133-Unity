@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class CombatLoop : MonoBehaviour
 {
-    private EnemyBase _enemy;
+    //Reference to the other classes 
+    public EnemyBase _enemy;
     private PlayerBase _player;
     private PlayerController _playerController;
 
     public bool _isCombatActive = false;
+    /*private bool _enemyTurn = false;
+    private bool _playerTurn = false;*/
 
 
     public void Start()
     {
+        // Find th object type of the classes needed 
         _enemy = Object.FindAnyObjectByType<EnemyBase>();
         _player = Object.FindAnyObjectByType<PlayerBase>();
         _playerController = Object.FindAnyObjectByType<PlayerController>();
@@ -20,17 +24,22 @@ public class CombatLoop : MonoBehaviour
 
     public void Update()
     {
-        do
+        /*if(_isCombatActive == true)
         {
-            CombatRound();
-        }
-        while (_isCombatActive == true);
-    }
-
-    public void CombatRound()
-    {
+            
+            _playerController._isRotating = true;
+            _playerController._isMoving = true;
+            if (_enemy.enemyCurrentHp <= 0 || _player.currentHealth <= 0)
+            {
+                _isCombatActive = false;
+                Debug.Log("CombatOver");
+            }
+        }*/
+        
         
     }
+
+    
 
     public void EnemyTurn()
     {
@@ -39,8 +48,17 @@ public class CombatLoop : MonoBehaviour
 
     public void PlayerTurn()
     {
-        
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            _enemy.enemyCurrentHp -= _player.attackDamage;
+        }
+        else if (Input.GetKeyDown(KeyCode.N))
+        {
+            _player.currentHealth += _player.healPlayer;
+        }
     }
 
-    
+
+
+
 }

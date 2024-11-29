@@ -56,7 +56,7 @@ public class InventoryHUD : MonoBehaviour
             if(item._isConsumable == false)
             {
                 Text itemDescription = newSlot.transform.Find("ItemDescription").GetComponent<Text>();
-                itemDescription.text = $"Max Damage: { item.maxAttackDamage.ToString()}";
+                itemDescription.text = $"Max Damage: { item.maxAttackDamage.ToString()} Durabulity: {item.durability.ToString()}";
             }
             else if (item._isConsumable == true)
             {

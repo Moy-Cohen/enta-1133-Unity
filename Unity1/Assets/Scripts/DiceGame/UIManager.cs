@@ -18,6 +18,11 @@ public class UIManager : MonoBehaviour
         GameWon = 6,
     }
 
+    private void SetupMenus(PlayerBase player)
+    {
+        //_inGameHud.Setup();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))

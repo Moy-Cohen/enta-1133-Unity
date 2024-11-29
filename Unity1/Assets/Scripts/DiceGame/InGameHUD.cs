@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,21 +11,24 @@ public class InGameHUD : MonoBehaviour
 
     [SerializeField] public Image Healthbar;
     [SerializeField] private Text Timer;
-
+    [SerializeField] private TextMeshProUGUI _healthText;
     private bool _gamePaused = false;
     private float _timer = 0.0f;
 
-    public void Start()
+    public void Setup()
     {
         _uiManager = Object.FindAnyObjectByType<UIManager>();
         _player = Object.FindAnyObjectByType<PlayerBase>();
-        if (_player == null)
+        //if (_player != null)
+        //{
+        //    Debug.LogError("player is not found");
+        //}
+        if(Timer != null)
         {
-            Debug.LogError("player is not found");
-        }
+            Timer.text = "Timer Paused";
+            Timer.color = Color.red;
 
-        Timer.text = "Timer Paused";
-        Timer.color = Color.red;
+        }
     }
 
     public void OnStartGame()
@@ -41,6 +45,7 @@ public class InGameHUD : MonoBehaviour
         }
 
         _timer += Time.deltaTime;
+        if(Timer != null)
         Timer.text = $"{_timer,0:0.000}";
     }
 
@@ -52,8 +57,9 @@ public class InGameHUD : MonoBehaviour
 
     public void OnHealthChange(float currentHealth, float maxHealth)
     {
-        float imageFill = _player.currentHealth / _player.maxHealth;
-        Healthbar.fillAmount = imageFill;
+        _healthText.text = currentHealth.ToString();
+        /*float imageFill = _player.currentHealth / _player.maxHealth;
+        Healthbar.fillAmount = imageFill;*/
     }
     
 }

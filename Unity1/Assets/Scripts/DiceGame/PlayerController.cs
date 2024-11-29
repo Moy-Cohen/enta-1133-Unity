@@ -12,11 +12,13 @@ public class PlayerController : MonoBehaviour
         {Direction.West, 270 }
     };
     public Direction _facingDirection;
-    private bool _isRotating = false;
+    public bool _isRotating = false;
     
 
     // Smooth rotation
     [SerializeField] private float RotationTime = 0.5f;
+    [SerializeField] private PlayerBase PlayerData;
+    public PlayerBase PlayerBase { get { return PlayerData; } }
     private float _rotationTimer = 0.0f;
     private Quaternion _previousRotation;
 
@@ -24,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     // Smooth movement
     [SerializeField] private float MovementTime = 0.5f;
-    private bool _isMoving = false;
+    public bool _isMoving = false;
     private float _movementTimer = 0.0f;
     public Vector3 _previousPosition;
     public Vector3 _moveToPosition;

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     private MapManager _gameMap;
     private PlayerController _playerController;
+    private PlayerBase _playerData;
     private CombatRoom _combatRoom;
 
     public void Start()
@@ -22,8 +23,8 @@ public class GameManager : MonoBehaviour
         SetupMap();
         SpawnPlayer();
         StartGame();
-        
-        
+
+        //UiMangaer.SetupMenus(_playerData);
     }
 
     private void SetupMap()
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
         _playerController.transform.position = new Vector3(randomStartingRoom.Key.x, 1, randomStartingRoom.Key.y);
         // Call the player setup function
         _playerController.Setup();
+        _playerData = _playerController.GetComponent<PlayerBase>();
         Debug.Log("GameManager SpawnPlayer Complete");
     }
 

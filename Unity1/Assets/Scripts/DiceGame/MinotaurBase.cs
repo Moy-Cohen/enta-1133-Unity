@@ -5,10 +5,11 @@ using UnityEngine;
 public class MinotaurBase : EnemyBase
 {
     private UIManager _uiManager;
+    private PlayerBase _playerBase;
 
     public bool _isAlive = true;
 
-    public void Start()
+    public override void Start()
     {
         _isAlive = true;
         _uiManager = Object.FindAnyObjectByType<UIManager>();
@@ -25,5 +26,11 @@ public class MinotaurBase : EnemyBase
         {
             _uiManager.OpenGameWonMenu();
         }
+    }
+
+    public override void DoAttack()
+    {
+        int attackDamage = Random.Range(0, enemyMaxAttackDamage);
+        _playerBase.currentHealth -= attackDamage;
     }
 }

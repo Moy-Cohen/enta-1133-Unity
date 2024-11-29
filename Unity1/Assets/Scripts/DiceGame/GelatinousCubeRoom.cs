@@ -7,39 +7,42 @@ public class GelatinousCubeRoom : RoomBase
 
     [SerializeField] EnemyBase EnemySlime;
 
+
+    private CombatLoop _combatLoop;
     private PlayerController _playerController;
 
-
+    private EnemyBase _currEnemey;
     public void Start()
     {
         _playerController = Object.FindAnyObjectByType<PlayerController>();
+        _combatLoop = Object.FindAnyObjectByType<CombatLoop>();
     }
 
     public void SpawnSlime()
     {
+        var slimeInstance = Instantiate(EnemySlime, transform);
         if (_playerController._facingDirection == Direction.North)
         {
-            var slimeInstance = Instantiate(EnemySlime, transform);
+            
             slimeInstance.transform.localPosition = new Vector3(0, 0.1f, 1.5f);
             slimeInstance.transform.Rotate(0, 180, 0);
         }
         else if (_playerController._facingDirection == Direction.East)
         {
-            var slimeInstance = Instantiate(EnemySlime, transform);
+            
             slimeInstance.transform.localPosition = new Vector3(1.5f, 0.1f, 0);
             slimeInstance.transform.Rotate(0, -90, 0);
         }
         else if (_playerController._facingDirection == Direction.South)
         {
-            var slimeInstance = Instantiate(EnemySlime, transform);
             slimeInstance.transform.localPosition = new Vector3(0, 0.1f, -1.5f);
         }
         else if (_playerController._facingDirection == Direction.West)
         {
-            var slimeInstance = Instantiate(EnemySlime, transform);
             slimeInstance.transform.localPosition = new Vector3(-1.5f, 0.1f, 0);
             slimeInstance.transform.Rotate(0, 90, 0);
         }
+        _combatLoop._enemy = slimeInstance;
     }
     public override void SetRoomLocation(Vector2 coordinates)
     {
@@ -58,6 +61,9 @@ public class GelatinousCubeRoom : RoomBase
             Debug.Log("Gelatinous Cube Room Searched");
             SpawnSlime();
             _isSearched = true;
+            _combatLoop._isCombatActive = true;
+           
+            Debug.Log("Combatstarted");
         }
         else
         {

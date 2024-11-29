@@ -17,11 +17,15 @@ public class PlayerInventory : MonoBehaviour
         StartingInventory();
     }
 
+    // Give the player some items at the start of the game 
     public void StartingInventory()
     {
+        //The player recieves three swords in case he spawns in a combat room
         for(int x = 0; x < 3; x++)
         {
             var startingWeapon = Instantiate(TreasurePrefabs[4]);
+
+            // The items spawn depending on where the player is facing inside the room
             if (_playerController._facingDirection == Direction.North)
             {
                 startingWeapon.transform.position = new Vector3(_playerController.transform.position.x, 0.5f, _playerController.transform.position.z + 1.5f);
@@ -42,9 +46,11 @@ public class PlayerInventory : MonoBehaviour
                 startingWeapon.transform.Rotate(0, 90, 0);
             }
             currentInventory.Add(startingWeapon);
-
+            
+            
             
         }
+        //The player gets five basic potions in case he needs to heal himself 
         for(int x = 0;x < 5; x++)
         {
             var startingPotion = Instantiate(TreasurePrefabs[0]);
@@ -76,12 +82,12 @@ public class PlayerInventory : MonoBehaviour
 
     public void TreasureSearch()
     {
+        //When the player searches a treasure room thre random items get added to his inventory
         for (int x = 0; x < 3; x++)
         {
             var treasureInstance = Instantiate(TreasurePrefabs[Random.Range(0, TreasurePrefabs.Length)]);
-            /*treasureInstance.transform.position = new Vector3(_playerController.transform.position.x + 1, _playerController.transform.position.y, _playerController.transform.position.z + 1);
-            currentInventory.Add(treasureInstance);*/
-
+            
+            
             if (_playerController._facingDirection == Direction.North)
             {
                 treasureInstance.transform.position = new Vector3(_playerController.transform.position.x, 0.5f, _playerController.transform.position.z + 1.5f);
