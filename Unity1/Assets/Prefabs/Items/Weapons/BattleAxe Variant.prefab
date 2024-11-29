@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 470814377574888445, guid: a821353c6e9508646aeab10299bff878, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.19011
+      value: -0.032
       objectReference: {fileID: 0}
     - target: {fileID: 470814377574888445, guid: a821353c6e9508646aeab10299bff878, type: 3}
       propertyPath: m_LocalPosition.z
@@ -162,6 +162,7 @@ MonoBehaviour:
   _isConsumable: 0
   maxAttackDamage: 12
   durability: 5
+  maxHealth: 0
 --- !u!4 &4646771650186047982 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8985921895909724420, guid: c879466a999f6e6419b5d955d2d28271, type: 3}

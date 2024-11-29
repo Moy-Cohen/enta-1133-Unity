@@ -5,12 +5,14 @@ using UnityEngine;
 public class MinotaurRoom : RoomBase
 {
     [SerializeField] EnemyBase EnemyMinotaur;
+    private CombatLoop _combatLoop;
 
     private PlayerController _playerController;
 
     public void Start()
     {
         _playerController = Object.FindAnyObjectByType<PlayerController>();
+        _combatLoop = Object.FindAnyObjectByType<CombatLoop>();
     }
 
     public void SpawnMinotaur()

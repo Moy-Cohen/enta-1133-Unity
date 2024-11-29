@@ -4,15 +4,43 @@ using UnityEngine;
 
 public class CombatLoop : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private EnemyBase _enemy;
+    private PlayerBase _player;
+    private PlayerController _playerController;
+
+    public bool _isCombatActive = false;
+
+
+    public void Start()
+    {
+        _enemy = Object.FindAnyObjectByType<EnemyBase>();
+        _player = Object.FindAnyObjectByType<PlayerBase>();
+        _playerController = Object.FindAnyObjectByType<PlayerController>();
+    }
+
+    public void Update()
+    {
+        do
+        {
+            CombatRound();
+        }
+        while (_isCombatActive == true);
+    }
+
+    public void CombatRound()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void EnemyTurn()
+    {
+        _enemy.DoAttack();
+    }
+
+    public void PlayerTurn()
     {
         
     }
+
+    
 }

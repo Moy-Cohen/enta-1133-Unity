@@ -22,13 +22,51 @@ public class PlayerInventory : MonoBehaviour
         for(int x = 0; x < 3; x++)
         {
             var startingWeapon = Instantiate(TreasurePrefabs[4]);
-            startingWeapon.transform.position = _playerController.transform.position;
+            if (_playerController._facingDirection == Direction.North)
+            {
+                startingWeapon.transform.position = new Vector3(_playerController.transform.position.x, 0.5f, _playerController.transform.position.z + 1.5f);
+                startingWeapon.transform.Rotate(0, 180, 0);
+            }
+            else if (_playerController._facingDirection == Direction.East)
+            {
+                startingWeapon.transform.position = new Vector3(_playerController.transform.position.x + 1.5f, 0.5f, _playerController.transform.position.z);
+                startingWeapon.transform.Rotate(0, -90, 0);
+            }
+            else if (_playerController._facingDirection == Direction.South)
+            {
+                startingWeapon.transform.position = new Vector3(_playerController.transform.position.x, 0.5f, _playerController.transform.position.z - 1.5f);
+            }
+            else if (_playerController._facingDirection == Direction.West)
+            {
+                startingWeapon.transform.position = new Vector3(_playerController.transform.position.x - 1.5f, 0.5f, _playerController.transform.position.z);
+                startingWeapon.transform.Rotate(0, 90, 0);
+            }
             currentInventory.Add(startingWeapon);
+
+            
         }
         for(int x = 0;x < 5; x++)
         {
             var startingPotion = Instantiate(TreasurePrefabs[0]);
-            startingPotion.transform.position = _playerController.transform.position;
+            if (_playerController._facingDirection == Direction.North)
+            {
+                startingPotion.transform.position = new Vector3(_playerController.transform.position.x, 0.5f, _playerController.transform.position.z + 1.5f);
+                startingPotion.transform.Rotate(0, 180, 0);
+            }
+            else if (_playerController._facingDirection == Direction.East)
+            {
+                startingPotion.transform.position = new Vector3(_playerController.transform.position.x + 1.5f, 0.5f, _playerController.transform.position.z);
+                startingPotion.transform.Rotate(0, -90, 0);
+            }
+            else if (_playerController._facingDirection == Direction.South)
+            {
+                startingPotion.transform.position = new Vector3(_playerController.transform.position.x, 0.5f, _playerController.transform.position.z - 1.5f);
+            }
+            else if (_playerController._facingDirection == Direction.West)
+            {
+                startingPotion.transform.position = new Vector3(_playerController.transform.position.x - 1.5f, 0.5f, _playerController.transform.position.z);
+                startingPotion.transform.Rotate(0, 90, 0);
+            }
             currentInventory.Add(startingPotion);
         }
 
@@ -46,37 +84,26 @@ public class PlayerInventory : MonoBehaviour
 
             if (_playerController._facingDirection == Direction.North)
             {
-                //var treasureInstance = Instantiate(TreasurePrefabs[Random.Range(0, TreasurePrefabs.Length)]);
-                treasureInstance.transform.position = new Vector3(_playerController.transform.position.x, 1, _playerController.transform.position.z + 1.5f);
+                treasureInstance.transform.position = new Vector3(_playerController.transform.position.x, 0.5f, _playerController.transform.position.z + 1.5f);
                 treasureInstance.transform.Rotate(0, 180, 0);
-                currentInventory.Add(treasureInstance);
-                //Destroy(treasureInstance);
             }
             else if (_playerController._facingDirection == Direction.East)
             {
-                //var treasureInstance = Instantiate(TreasurePrefabs[Random.Range(0, TreasurePrefabs.Length)]);
-                treasureInstance.transform.position = new Vector3(_playerController.transform.position.x + 1.5f, 0.1f, _playerController.transform.position.z);
+                treasureInstance.transform.position = new Vector3(_playerController.transform.position.x + 1.5f, 0.5f, _playerController.transform.position.z);
                 treasureInstance.transform.Rotate(0, -90, 0);
-                currentInventory.Add(treasureInstance);
-                //Destroy(treasureInstance);
             }
             else if (_playerController._facingDirection == Direction.South)
             {
-                //var treasureInstance = Instantiate(TreasurePrefabs[Random.Range(0, TreasurePrefabs.Length)]);
-                treasureInstance.transform.position = new Vector3(_playerController.transform.position.x, 0.1f, _playerController.transform.position.z - 1.5f);
-                currentInventory.Add(treasureInstance);
-                //Destroy(treasureInstance);
+                treasureInstance.transform.position = new Vector3(_playerController.transform.position.x, 0.5f, _playerController.transform.position.z - 1.5f);
             }
             else if (_playerController._facingDirection == Direction.West)
             {
-                //var treasureInstance = Instantiate(TreasurePrefabs[Random.Range(0, TreasurePrefabs.Length)]);
-                treasureInstance.transform.position = new Vector3(_playerController.transform.position.x - 1.5f, 0.1f, _playerController.transform.position.z);
+                treasureInstance.transform.position = new Vector3(_playerController.transform.position.x - 1.5f, 0.5f, _playerController.transform.position.z);
                 treasureInstance.transform.Rotate(0, 90, 0);
-                currentInventory.Add(treasureInstance);
-                //Destroy(treasureInstance);
             }
 
-            Destroy(treasureInstance);
+            currentInventory.Add(treasureInstance);
+            //Destroy(treasureInstance.gameObject);
 
         }
     }

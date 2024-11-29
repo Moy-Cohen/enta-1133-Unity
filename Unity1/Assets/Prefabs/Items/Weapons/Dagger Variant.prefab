@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1449224405803152906, guid: d2a69bab98638ae41819a23ca7985832, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.613
+      value: 0.518
       objectReference: {fileID: 0}
     - target: {fileID: 1449224405803152906, guid: d2a69bab98638ae41819a23ca7985832, type: 3}
       propertyPath: m_LocalPosition.z
@@ -151,3 +151,4 @@ MonoBehaviour:
   _isConsumable: 0
   maxAttackDamage: 4
   durability: 3
+  maxHealth: 0

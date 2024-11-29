@@ -6,6 +6,7 @@ public class PlayerBase : MonoBehaviour
 {
     private InGameHUD _inGameHud;
     private UIManager _uiManager;
+    private EnemyBase _enemyBase;
 
 
     [SerializeField] public float maxHealth = 50;
@@ -15,6 +16,7 @@ public class PlayerBase : MonoBehaviour
     {
         _inGameHud = Object.FindAnyObjectByType<InGameHUD>();
         _uiManager = Object.FindAnyObjectByType<UIManager>();
+        _enemyBase = Object.FindAnyObjectByType<EnemyBase>();
     }
 
     public void Update()
