@@ -223,4 +223,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36ebd19eace2c0e4b89ae8ba2cd8eb63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemy: {fileID: -6147299411602087957, guid: b2b7d28056da73f49b74cb88866eca66, type: 3}
   _isCombatActive: 0

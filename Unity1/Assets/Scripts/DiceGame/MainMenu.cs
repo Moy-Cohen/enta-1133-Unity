@@ -19,4 +19,10 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void PlayAgainButton()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuScene");
+        gameObject.SetActive(false);
+    }
+
 }

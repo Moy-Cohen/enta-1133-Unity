@@ -7,6 +7,14 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] Layouts;
 
+    private InGameHUD _inGameHud;
+
+
+    public void Start()
+    {
+        _inGameHud = Object.FindAnyObjectByType<InGameHUD>();
+    }
+
     private enum MenuLayouts
     {
         MainMenu = 0,
@@ -18,9 +26,9 @@ public class UIManager : MonoBehaviour
         GameWon = 6,
     }
 
-    private void SetupMenus(PlayerBase player)
+    public void SetupMenus(PlayerBase player)
     {
-        //_inGameHud.Setup();
+        _inGameHud.Setup();
     }
 
     private void Update()

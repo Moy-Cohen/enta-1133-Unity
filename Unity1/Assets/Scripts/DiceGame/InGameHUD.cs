@@ -58,8 +58,8 @@ public class InGameHUD : MonoBehaviour
     public void OnHealthChange(float currentHealth, float maxHealth)
     {
         _healthText.text = currentHealth.ToString();
-        /*float imageFill = _player.currentHealth / _player.maxHealth;
-        Healthbar.fillAmount = imageFill;*/
+        Healthbar.fillAmount = _player.currentHealth / _player.maxHealth;
+         
     }
     
 }

@@ -10,8 +10,8 @@ public class CombatLoop : MonoBehaviour
     private PlayerController _playerController;
 
     public bool _isCombatActive = false;
-    /*private bool _enemyTurn = false;
-    private bool _playerTurn = false;*/
+    private bool _enemyTurn = true;
+    private bool _playerTurn = false;
 
 
     public void Start()
@@ -24,19 +24,32 @@ public class CombatLoop : MonoBehaviour
 
     public void Update()
     {
-        /*if(_isCombatActive == true)
+        if(_isCombatActive == true)
         {
             
             _playerController._isRotating = true;
             _playerController._isMoving = true;
-            if (_enemy.enemyCurrentHp <= 0 || _player.currentHealth <= 0)
-            {
-                _isCombatActive = false;
-                Debug.Log("CombatOver");
-            }
-        }*/
+            CombatRound();
+        }
         
         
+    }
+
+    public void CombatRound()
+    {
+        if (_enemyTurn == true && _playerTurn == false)
+        {
+            EnemyTurn();
+        }
+        if (_playerTurn == true && _enemyTurn == false)
+        {
+            PlayerTurn();
+        }
+        if (_enemy.enemyCurrentHp <= 0 || _player.currentHealth <= 0)
+        {
+            _isCombatActive = false;
+            Debug.Log("CombatOver");
+        }
     }
 
     
@@ -44,6 +57,8 @@ public class CombatLoop : MonoBehaviour
     public void EnemyTurn()
     {
         _enemy.DoAttack();
+        _enemyTurn = false;
+        _playerTurn = true;
     }
 
     public void PlayerTurn()
@@ -56,6 +71,9 @@ public class CombatLoop : MonoBehaviour
         {
             _player.currentHealth += _player.healPlayer;
         }
+        _playerTurn = false;
+        _enemyTurn = true;
+
     }
 
 

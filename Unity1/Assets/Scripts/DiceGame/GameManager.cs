@@ -14,9 +14,11 @@ public class GameManager : MonoBehaviour
     private PlayerController _playerController;
     private PlayerBase _playerData;
     private CombatRoom _combatRoom;
+    public UIManager UiManager;
 
     public void Start()
     {
+        UiManager = Object.FindAnyObjectByType<UIManager>();
         Debug.Log("GameManager Start Begins");
         // Zero our manager position
         transform.position = Vector3.zero;
@@ -24,7 +26,7 @@ public class GameManager : MonoBehaviour
         SpawnPlayer();
         StartGame();
 
-        //UiMangaer.SetupMenus(_playerData);
+        UiManager.SetupMenus(_playerData);
     }
 
     private void SetupMap()
