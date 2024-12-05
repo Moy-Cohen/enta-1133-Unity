@@ -7,39 +7,39 @@ public class SkeletonsRoom : RoomBase
     [SerializeField] EnemyBase EnemySkeleton;
 
     private PlayerController _playerController;
+    private CombatLoop _combatLoop;
+    private EnemyBase _currEnemy;
 
     public void Start()
     {
         _playerController = Object.FindAnyObjectByType<PlayerController>();
-        
+        _combatLoop = Object.FindAnyObjectByType<CombatLoop>();
     }
 
     public void SpawnSkeleton()
     {
+        var skeletonInstance = Instantiate(EnemySkeleton, transform);
         if (_playerController._facingDirection == Direction.North)
         {
-            var skeletonInstance = Instantiate(EnemySkeleton, transform);
             skeletonInstance.transform.localPosition = new Vector3(0, 0.1f, 2);
             skeletonInstance.transform.Rotate(0, 180, 0);
         }
         else if (_playerController._facingDirection == Direction.East)
         {
-            var skeletonInstance = Instantiate(EnemySkeleton, transform);
             skeletonInstance.transform.localPosition = new Vector3(2, 0.1f, 0);
             skeletonInstance.transform.Rotate(0, -90, 0);
         }
         else if (_playerController._facingDirection == Direction.South)
         {
-            var skeletonInstance = Instantiate(EnemySkeleton, transform);
             skeletonInstance.transform.localPosition = new Vector3(0, 0.1f, -2);
         }
         else if (_playerController._facingDirection == Direction.West)
         {
-            var skeletonInstance = Instantiate(EnemySkeleton, transform);
+            
             skeletonInstance.transform.localPosition = new Vector3(-2, 0.1f, 0);
             skeletonInstance.transform.Rotate(0, 90, 0);
         }
-
+        _combatLoop._enemy = skeletonInstance;
     }
     public override void SetRoomLocation(Vector2 coordinates)
     {
@@ -57,7 +57,10 @@ public class SkeletonsRoom : RoomBase
         {
             Debug.Log("Skeletons Room Searched");
             SpawnSkeleton();
+            _combatLoop.Setup();
             _isSearched = true;
+            _combatLoop._isCombatActive = true;
+            Debug.Log("Combatstarted");
         }
         else
         {

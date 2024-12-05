@@ -8,11 +8,24 @@ public class CombatLoop : MonoBehaviour
     public EnemyBase _enemy;
     private PlayerBase _player;
     private PlayerController _playerController;
+    private State _state;
 
     public bool _isCombatActive = false;
-    private bool _enemyTurn = true;
-    private bool _playerTurn = false;
+    private bool _enemyTurn = false;
+    private bool _playerTurn = true;
 
+    private enum State
+    {
+        waitingForPlayer,
+        busy,
+    }
+
+    public void Setup()
+    {
+        _state = State.waitingForPlayer;
+        _enemyTurn = false;
+        _playerTurn = true;
+    }
 
     public void Start()
     {
@@ -20,30 +33,30 @@ public class CombatLoop : MonoBehaviour
         _enemy = Object.FindAnyObjectByType<EnemyBase>();
         _player = Object.FindAnyObjectByType<PlayerBase>();
         _playerController = Object.FindAnyObjectByType<PlayerController>();
+        _state = State.waitingForPlayer;
     }
 
     public void Update()
     {
         if(_isCombatActive == true)
         {
-            
-            _playerController._isRotating = true;
-            _playerController._isMoving = true;
             CombatRound();
         }
         
-        
+
     }
 
     public void CombatRound()
     {
-        if (_enemyTurn == true && _playerTurn == false)
+        if (_state == State.waitingForPlayer)
         {
-            EnemyTurn();
-        }
-        if (_playerTurn == true && _enemyTurn == false)
-        {
+            _state = State.busy;
             PlayerTurn();
+        }
+        else if (_state == State.busy)
+        {
+            _state = State.waitingForPlayer;
+            EnemyTurn();
         }
         if (_enemy.enemyCurrentHp <= 0 || _player.currentHealth <= 0)
         {
@@ -57,6 +70,7 @@ public class CombatLoop : MonoBehaviour
     public void EnemyTurn()
     {
         _enemy.DoAttack();
+        Debug.Log($"Enemy dealt {_enemy.attackDamage} points of damage");
         _enemyTurn = false;
         _playerTurn = true;
     }
@@ -66,10 +80,12 @@ public class CombatLoop : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
             _enemy.enemyCurrentHp -= _player.attackDamage;
+            Debug.Log($"Player dealt {_player.attackDamage} points of damage");
         }
         else if (Input.GetKeyDown(KeyCode.N))
         {
             _player.currentHealth += _player.healPlayer;
+            Debug.Log($"Player healed {_player.healPlayer} HP");
         }
         _playerTurn = false;
         _enemyTurn = true;

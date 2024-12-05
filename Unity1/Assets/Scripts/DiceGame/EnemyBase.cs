@@ -11,7 +11,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] public int enemyMaxHp = 0;
     [SerializeField] public int enemyCurrentHp = 0;
     [SerializeField] public int enemyMaxAttackDamage = 0;
-
+    public int attackDamage = 0;
 
     private PlayerBase _playerBase;
     
@@ -24,7 +24,7 @@ public class EnemyBase : MonoBehaviour
     //Enemy attacks and do random damage between 0 and the max damage
     public virtual void DoAttack()
     {
-        int attackDamage = Random.Range(0, enemyMaxAttackDamage);
+        attackDamage = Random.Range(0, enemyMaxAttackDamage);
         _playerBase.currentHealth -= attackDamage;
     }
 

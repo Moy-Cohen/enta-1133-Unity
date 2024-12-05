@@ -7,41 +7,42 @@ public class SpidersRoom : RoomBase
 
     [SerializeField] EnemyBase EnemySpider;
 
+    private CombatLoop _combatLoop;
     private PlayerController _playerController;
+    private EnemyBase _currEnemy;
 
     public void Start()
     {
         _playerController = Object.FindAnyObjectByType<PlayerController>();
+        _combatLoop = Object.FindAnyObjectByType<CombatLoop>();
         
     }
 
     public void SpawnSpiders()
     {
+        var spiderInstance = Instantiate(EnemySpider, transform);
         if (_playerController._facingDirection == Direction.North)
         {
-            var spiderInstance = Instantiate(EnemySpider, transform);
+            
             spiderInstance.transform.localPosition = new Vector3(0, 0.1f, 1.5f);
             spiderInstance.transform.Rotate(0, 180, 0);
         }
         else if (_playerController._facingDirection == Direction.East)
         {
-            var spiderInstance = Instantiate(EnemySpider, transform);
             spiderInstance.transform.localPosition = new Vector3(1.5f, 0.1f, 0);
             spiderInstance.transform.Rotate(0, -90, 0);
         }
         else if (_playerController._facingDirection == Direction.South)
         {
-            var spiderInstance = Instantiate(EnemySpider, transform);
             spiderInstance.transform.localPosition = new Vector3(0, 0.1f, -1.5f); 
         }
         else if (_playerController._facingDirection == Direction.West)
         {
-            var spiderInstance = Instantiate(EnemySpider, transform);
             spiderInstance.transform.localPosition = new Vector3(-1.5f, 0.1f, 0);
             spiderInstance.transform.Rotate(0, 90, 0);
         }
 
-
+        _combatLoop._enemy = spiderInstance;
     }
     public override void SetRoomLocation(Vector2 coordinates)
     {
@@ -59,7 +60,10 @@ public class SpidersRoom : RoomBase
         {
             Debug.Log("Spiders Room Searched");
             SpawnSpiders();
+            _combatLoop.Setup();
             _isSearched = true;
+            _combatLoop._isCombatActive = true;
+            Debug.Log("Combat Started");
         }
         else
         {

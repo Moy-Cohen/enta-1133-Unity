@@ -303,6 +303,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5920496506815101479, guid: 8f6c7431bdae71743804f6e96e129b8d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7644053243704037158}
+    - targetCorrespondingSourceObject: {fileID: 5920496506815101479, guid: 8f6c7431bdae71743804f6e96e129b8d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6571417717531738168}
   m_SourcePrefab: {fileID: 100100000, guid: 8f6c7431bdae71743804f6e96e129b8d, type: 3}
 --- !u!1 &42033165005681221 stripped
 GameObject:
@@ -341,11 +344,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8dd9dd5ea8344449a6517e3d7fa943d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSearched: 0
   NorthDoorway: {fileID: 6129207603261629014}
   EastDoorway: {fileID: 42033165005681221}
   SouthDoorway: {fileID: 8834637142942396831}
   WestDoorway: {fileID: 1595789168810415610}
   EnemyMinotaur: {fileID: 434109278459249675, guid: a5e52d7b140946447b7c3914efa061fb, type: 3}
+--- !u!114 &6571417717531738168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7773197555238205188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ebd19eace2c0e4b89ae8ba2cd8eb63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemy: {fileID: 434109278459249675, guid: a5e52d7b140946447b7c3914efa061fb, type: 3}
+  _isCombatActive: 0
 --- !u!1 &8834637142942396831 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4858480637843242172, guid: 8f6c7431bdae71743804f6e96e129b8d, type: 3}

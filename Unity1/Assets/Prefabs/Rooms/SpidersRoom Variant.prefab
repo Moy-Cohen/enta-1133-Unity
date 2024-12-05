@@ -173,6 +173,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5920496506815101479, guid: 8f6c7431bdae71743804f6e96e129b8d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2938010705359269796}
+    - targetCorrespondingSourceObject: {fileID: 5920496506815101479, guid: 8f6c7431bdae71743804f6e96e129b8d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4993714354410834595}
   m_SourcePrefab: {fileID: 100100000, guid: 8f6c7431bdae71743804f6e96e129b8d, type: 3}
 --- !u!1 &3334781108391261925 stripped
 GameObject:
@@ -206,11 +209,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efaf33c566fae9542aa91c3f12fa13c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSearched: 0
   NorthDoorway: {fileID: 7885158238525325641}
   EastDoorway: {fileID: 4104943668416647514}
   SouthDoorway: {fileID: 4825620026667684480}
   WestDoorway: {fileID: 3334781108391261925}
   EnemySpider: {fileID: 4500308437058310151, guid: 118aa6086c34d9e4f980e66f90774e3c, type: 3}
+--- !u!114 &4993714354410834595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6034002761130710043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ebd19eace2c0e4b89ae8ba2cd8eb63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemy: {fileID: 4500308437058310151, guid: 118aa6086c34d9e4f980e66f90774e3c, type: 3}
+  _isCombatActive: 0
 --- !u!1 &7885158238525325641 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7852435094228152181, guid: 8f6c7431bdae71743804f6e96e129b8d, type: 3}

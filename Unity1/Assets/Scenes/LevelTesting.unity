@@ -312,6 +312,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2423444829866048298, guid: f27a818d9c7722c47bd28c0660fd110d, type: 3}
+      propertyPath: m_Text
+      value: "Press \"A\" to turn left\nPress \"D\" to turn right\nPress \"W\" to
+        move fordward \nPress \"E\"  to open inventory\nPress \"Spacebar\" to Search
+        a room\nPress \"Esc\" to pause game\n-During Combat-\nPress \"M\" to attack\nPress
+        \"N\" to heal"
+      objectReference: {fileID: 0}
     - target: {fileID: 3356295502795629866, guid: f27a818d9c7722c47bd28c0660fd110d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -319,6 +326,18 @@ PrefabInstance:
     - target: {fileID: 6483892922269639439, guid: f27a818d9c7722c47bd28c0660fd110d, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966728725846335564, guid: f27a818d9c7722c47bd28c0660fd110d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376716854522615216, guid: f27a818d9c7722c47bd28c0660fd110d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 275.1137
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376716854522615216, guid: f27a818d9c7722c47bd28c0660fd110d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 192.44318
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -5,9 +5,10 @@ using UnityEngine;
 public class MinotaurRoom : RoomBase
 {
     [SerializeField] EnemyBase EnemyMinotaur;
-    private CombatLoop _combatLoop;
 
+    private CombatLoop _combatLoop;
     private PlayerController _playerController;
+    private EnemyBase _currEnemy;
 
     public void Start()
     {
@@ -17,30 +18,28 @@ public class MinotaurRoom : RoomBase
 
     public void SpawnMinotaur()
     {
+        var minotaurInstance = Instantiate(EnemyMinotaur, transform);
         if (_playerController._facingDirection == Direction.North)
         {
-            var minotaurInstance = Instantiate(EnemyMinotaur, transform);
             minotaurInstance.transform.localPosition = new Vector3(0, 0.1f, 2);
             minotaurInstance.transform.Rotate(0, 180, 0);
         }
         else if (_playerController._facingDirection == Direction.East)
         {
-            var minotaurInstance = Instantiate(EnemyMinotaur, transform);
             minotaurInstance.transform.localPosition = new Vector3(2, 0.1f, 0);
             minotaurInstance.transform.Rotate(0, -90, 0);
         }
         else if (_playerController._facingDirection == Direction.South)
         {
-            var minotaurInstance = Instantiate(EnemyMinotaur, transform);
             minotaurInstance.transform.localPosition = new Vector3(0, 0.1f, -2);
         }
         else if (_playerController._facingDirection == Direction.West)
         {
-            var minotaurInstance = Instantiate(EnemyMinotaur, transform);
+            
             minotaurInstance.transform.localPosition = new Vector3(-2, 0.1f, 0);
             minotaurInstance.transform.Rotate(0, 90, 0);
         }
-
+        _combatLoop._enemy = minotaurInstance;
     }
     public override void SetRoomLocation(Vector2 coordinates)
     {
@@ -58,7 +57,10 @@ public class MinotaurRoom : RoomBase
         {
             Debug.Log("Minotaur Room Searched");
             SpawnMinotaur();
+            _combatLoop.Setup();
             _isSearched = true;
+            _combatLoop._isCombatActive = true;
+            Debug.Log("Combatstarted");
         }
         else
         {

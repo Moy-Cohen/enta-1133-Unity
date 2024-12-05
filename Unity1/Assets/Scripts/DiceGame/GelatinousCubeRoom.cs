@@ -60,8 +60,9 @@ public class GelatinousCubeRoom : RoomBase
         {
             Debug.Log("Gelatinous Cube Room Searched");
             SpawnSlime();
+            _combatLoop.Setup();
             _isSearched = true;
-            //_combatLoop._isCombatActive = true;
+            _combatLoop._isCombatActive = true;
            
             Debug.Log("Combatstarted");
         }
