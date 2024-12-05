@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     private InGameHUD _inGameHud;
 
 
-    public void Start()
+    public void Setup()
     {
         _inGameHud = Object.FindAnyObjectByType<InGameHUD>();
     }

@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: f7c2b0421a9fa634eac752c034bb9cf0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - GameMapPrefab: {fileID: 7128827046375660501, guid: de63a7347ffaac3468c67eef7d1f4180, type: 3}
+  - PlayerPrefab: {fileID: 1365650369546941737, guid: 763c357d4c7eba447994b6bbc2ea92ec, type: 3}
+  - UiManager: {fileID: 5408899595679688584, guid: f27a818d9c7722c47bd28c0660fd110d, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

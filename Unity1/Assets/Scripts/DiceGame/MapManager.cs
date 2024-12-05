@@ -5,7 +5,7 @@ using UnityEngine;
 public class MapManager : MonoBehaviour
 {
     [SerializeField] private RoomBase[] RoomPrefabs;
-    [SerializeField] private float RoomSize = 3;
+    [SerializeField] private float RoomSize = 9;
     [SerializeField] private MinotaurRoom minotaurRoom;
 
     // Map size is this number squared

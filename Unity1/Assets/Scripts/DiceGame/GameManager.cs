@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         SetupMap();
         SpawnPlayer();
         StartGame();
-
+        UiManager.Setup();
         UiManager.SetupMenus(_playerData);
     }
 
