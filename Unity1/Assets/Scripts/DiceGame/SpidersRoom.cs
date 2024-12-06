@@ -63,7 +63,9 @@ public class SpidersRoom : RoomBase
             _combatLoop.Setup();
             _isSearched = true;
             _combatLoop._isCombatActive = true;
-            Debug.Log("Combat Started");
+            _combatLoop._state = CombatLoop.State.waitingForPlayer;
+            _combatLoop.OnCombatStarted();
+            
         }
         else
         {

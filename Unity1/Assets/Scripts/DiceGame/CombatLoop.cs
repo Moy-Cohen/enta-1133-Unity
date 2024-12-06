@@ -8,13 +8,13 @@ public class CombatLoop : MonoBehaviour
     public EnemyBase _enemy;
     private PlayerBase _player;
     private PlayerController _playerController;
-    private State _state;
+    public State _state;
 
-    public bool _isCombatActive = false;
-    private bool _enemyTurn = false;
-    private bool _playerTurn = true;
+    public bool _isCombatActive;
+    /*private bool _enemyTurn = false;
+    private bool _playerTurn = true;*/
 
-    private enum State
+    public enum State
     {
         waitingForPlayer,
         busy,
@@ -23,8 +23,9 @@ public class CombatLoop : MonoBehaviour
     public void Setup()
     {
         _state = State.waitingForPlayer;
-        _enemyTurn = false;
-        _playerTurn = true;
+        /*_enemyTurn = false;
+        _playerTurn = true;*/
+        
     }
 
     public void Start()
@@ -34,65 +35,94 @@ public class CombatLoop : MonoBehaviour
         _player = Object.FindAnyObjectByType<PlayerBase>();
         _playerController = Object.FindAnyObjectByType<PlayerController>();
         _state = State.waitingForPlayer;
+        
     }
 
-    public void Update()
+    public void Awake()
     {
-        if(_isCombatActive == true)
-        {
-            CombatRound();
-        }
         
+    }
 
+    public void OnCombatStarted()
+    {
+        Debug.Log("Combat Started");
+        while (_isCombatActive)
+        {
+            if (_state == State.waitingForPlayer)
+            {
+                PlayerTurn();
+                _state = State.busy;
+            }
+            else if (_state == State.busy)
+            {
+                EnemyTurn();
+                _state = State.waitingForPlayer;
+            }
+        }
     }
 
     public void CombatRound()
     {
-        if (_state == State.waitingForPlayer)
-        {
-            _state = State.busy;
-            PlayerTurn();
-        }
-        else if (_state == State.busy)
-        {
-            _state = State.waitingForPlayer;
-            EnemyTurn();
-        }
-        if (_enemy.enemyCurrentHp <= 0 || _player.currentHealth <= 0)
-        {
-            _isCombatActive = false;
-            Debug.Log("CombatOver");
-        }
+        
+        
     }
 
     
 
     public void EnemyTurn()
     {
-        _enemy.DoAttack();
-        Debug.Log($"Enemy dealt {_enemy.attackDamage} points of damage");
-        _enemyTurn = false;
-        _playerTurn = true;
+        if (_state == State.busy)
+        {
+            Debug.Log("Enemy Turn Begins");
+            _enemy.DoAttack();
+            Debug.Log($"Enemy dealt {_enemy.attackDamage} points of damage");
+            _player.currentHealth -= _enemy.attackDamage;
+            if (_player.currentHealth <= 0)
+            {
+                _isCombatActive = false;
+                Debug.Log("CombatOver");
+                Destroy(_enemy);
+            }
+            Debug.Log("Enemy Turn Ends");
+
+            /*_enemyTurn = false;
+            _playerTurn = true;*/
+        }
+
     }
 
     public void PlayerTurn()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if(_state == State.waitingForPlayer)
         {
-            _enemy.enemyCurrentHp -= _player.attackDamage;
-            Debug.Log($"Player dealt {_player.attackDamage} points of damage");
-        }
-        else if (Input.GetKeyDown(KeyCode.N))
-        {
-            _player.currentHealth += _player.healPlayer;
-            Debug.Log($"Player healed {_player.healPlayer} HP");
-        }
-        _playerTurn = false;
-        _enemyTurn = true;
-
+            Debug.Log("Player Turn Begins");
+            _state = State.busy;
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                _enemy.enemyCurrentHp -= _player.attackDamage;
+                Debug.Log($"Player dealt {_player.attackDamage} points of damage");
+                Debug.Log("Player Turn Ends");
+                //_state = State.busy;
+                if (_enemy.enemyCurrentHp <= 0)
+                {
+                    _isCombatActive = false;
+                    Debug.Log("CombatOver");
+                    Destroy(_enemy);
+                }
+                _state = State.busy;
+                /*_playerTurn = false;
+                _enemyTurn = true;*/
+            }
+            else if (Input.GetKeyDown(KeyCode.N))
+            {
+                _player.currentHealth += _player.healPlayer;
+                Debug.Log($"Player healed {_player.healPlayer} HP");
+                Debug.Log("Player Turn Ends");
+                //_state = State.busy;
+                /*_playerTurn = false;
+                _enemyTurn = true;*/
+            }
+        } 
     }
-
-
-
 
 }

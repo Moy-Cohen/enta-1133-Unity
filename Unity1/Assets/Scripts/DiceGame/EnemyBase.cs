@@ -14,18 +14,20 @@ public class EnemyBase : MonoBehaviour
     public int attackDamage = 0;
 
     private PlayerBase _playerBase;
-    
+  
 
     public virtual void Start()
     {
         _playerBase = Object.FindAnyObjectByType<PlayerBase>();
+        
     }
 
     //Enemy attacks and do random damage between 0 and the max damage
     public virtual void DoAttack()
     {
         attackDamage = Random.Range(0, enemyMaxAttackDamage);
-        _playerBase.currentHealth -= attackDamage;
+        
+        
     }
 
 }

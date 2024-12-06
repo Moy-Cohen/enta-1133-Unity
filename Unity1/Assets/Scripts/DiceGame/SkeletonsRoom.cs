@@ -8,7 +8,7 @@ public class SkeletonsRoom : RoomBase
 
     private PlayerController _playerController;
     private CombatLoop _combatLoop;
-    private EnemyBase _currEnemy;
+    private EnemyBase _currentSkeleton;
 
     public void Start()
     {
@@ -60,7 +60,8 @@ public class SkeletonsRoom : RoomBase
             _combatLoop.Setup();
             _isSearched = true;
             _combatLoop._isCombatActive = true;
-            Debug.Log("Combatstarted");
+            _combatLoop._state = CombatLoop.State.waitingForPlayer;
+            _combatLoop.OnCombatStarted();
         }
         else
         {
